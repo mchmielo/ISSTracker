@@ -13,7 +13,13 @@ namespace ISSTracker.Controller
             {
                 throw new ArgumentOutOfRangeException($"Incorrect passed positions.");
             }
-            return 0;
+            double parA = Math.Sin((b.Latitude - a.Latitude).ToRadians() / 2)
+                * Math.Sin((b.Latitude - a.Latitude).ToRadians() / 2)
+                + Math.Cos(a.Latitude.ToRadians()) * Math.Cos(b.Latitude.ToRadians())
+                * Math.Sin((b.Longitude - a.Longitude).ToRadians() / 2) 
+                * Math.Sin((b.Longitude - a.Longitude).ToRadians() / 2);
+            double parC = 2 * Math.Atan2(Math.Sqrt(parA), Math.Sqrt(1 - parA));
+            return Math.Round(R*parC/1000);
         }
 
         private bool ArePositionsCorrect(Position a, Position b)

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\DoubleToRadiansExtension.cs" />
     <Compile Include="Controller\LatLongPathCalculator.cs" />
     <Compile Include="Model\ISSPosition.cs" />
     <Compile Include="Model\Position.cs" />
