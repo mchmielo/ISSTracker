@@ -22,6 +22,15 @@ namespace ISSTracker.Controller
             return Math.Round(R*parC/1000);
         }
 
+        public double CalculateSpeed(ISSPosition a, ISSPosition b)
+        {
+            if (!ArePositionsCorrect(a.Position, b.Position) || a.Timestamp == 0 || b.Timestamp == 0)
+            {
+                throw new ArgumentOutOfRangeException($"Incorrect passed positions.");
+            }
+            return 0;
+        }
+
         private bool ArePositionsCorrect(Position a, Position b)
         {
             return a.IsPositionCorrect() && b.IsPositionCorrect();
