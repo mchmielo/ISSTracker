@@ -41,7 +41,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LatLongPathCalculatorTests.cs" />
+    <Compile Include="LatLongCalculatorTests.cs" />
+    <Compile Include="Model\DataReceiverTests.cs" />
     <Compile Include="Model\PositionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

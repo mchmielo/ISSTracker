@@ -3,7 +3,7 @@ using System;
 
 namespace ISSTracker.Controller
 {
-    public class LatLongPathCalculator
+    public class LatLongCalculator
     {
         const double R = 6779e3;    // Earth radius + 408 km ISS's altitude (in metres)
 
@@ -19,16 +19,18 @@ namespace ISSTracker.Controller
                 * Math.Sin((b.Longitude - a.Longitude).ToRadians() / 2) 
                 * Math.Sin((b.Longitude - a.Longitude).ToRadians() / 2);
             double parC = 2 * Math.Atan2(Math.Sqrt(parA), Math.Sqrt(1 - parA));
-            return Math.Round(R*parC/1000);
+            return R*parC/1000;
         }
 
         public double CalculateSpeed(ISSPosition a, ISSPosition b)
         {
-            if (!ArePositionsCorrect(a.Position, b.Position) || a.Timestamp == 0 || b.Timestamp == 0)
+            if (a.Timestamp == 0 || b.Timestamp == 0)
             {
                 throw new ArgumentOutOfRangeException($"Incorrect passed positions.");
             }
-            return 0;
+            int deltaTime = b.Timestamp - a.Timestamp;
+            double distance = CalculatePath(a.ISS_Position, b.ISS_Position);
+            return distance/(deltaTime);
         }
 
         private bool ArePositionsCorrect(Position a, Position b)
