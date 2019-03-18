@@ -7,6 +7,14 @@ namespace ISSTracker.Controller
     {
         const double R = 6779e3;    // Earth radius + 408 km ISS's altitude (in metres)
 
+        /// <summary>
+        /// Method CalculatePath uses haversine formula found http://www.movable-type.co.uk/scripts/latlong.html
+        /// to calculate distance between two points given in latitude and longitude. It has been adjusted to the
+        /// ISS altitude which is about 408 km.
+        /// </summary>
+        /// <param name="a">Latitude and longitude of point a.</param>
+        /// <param name="b">Latitude and longitude of point b.</param>
+        /// <returns>Distance beetween a and b in kilometers.</returns>
         public double CalculatePath(Position a, Position b)
         {
             if(!ArePositionsCorrect(a, b))

@@ -26,7 +26,7 @@ namespace ISSTracker.Test
             Position a = new Position(lat1, long1);
             Position b = new Position(lat2, long2);
             LatLongCalculator pathCalulator = new LatLongCalculator();
-            Assert.AreEqual(result, pathCalulator.CalculatePath(a, b));
+            Assert.AreEqual(result, pathCalulator.CalculatePath(a, b), 0.5);
         }
 
         [TestCase(91, 0, 1552757126, 0, 0, 1552757413)]
@@ -54,7 +54,7 @@ namespace ISSTracker.Test
             issPosition2.ISS_Position = new Position(lat2, long2);
             issPosition2.Timestamp = time2;
             LatLongCalculator pathCalculator = new LatLongCalculator();
-            Assert.AreEqual(speed, pathCalculator.CalculateSpeed(issPosition1, issPosition2));
+            Assert.AreEqual(speed, pathCalculator.CalculateSpeed(issPosition1, issPosition2), 0.5);
         }
     }
 }

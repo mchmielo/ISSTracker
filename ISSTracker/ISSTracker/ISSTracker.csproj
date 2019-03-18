@@ -52,8 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\DoubleToRadiansExtension.cs" />
+    <Compile Include="Controller\EpochToUTCDateTimeExtension.cs" />
+    <Compile Include="Controller\ISSTrackerApi.cs" />
     <Compile Include="Controller\LatLongCalculator.cs" />
     <Compile Include="Model\DataReceiver.cs" />
+    <Compile Include="Model\ISSHistory.cs" />
     <Compile Include="Model\ISSPosition.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Program.cs" />
